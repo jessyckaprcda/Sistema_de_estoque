@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão GJN</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #b71c1c;
+      color: white;
+      text-align: center;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #8b0000;
+    }
+    header a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 16px;
+    }
+    header a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 90vh;
+    }
+    .container h1 {
+      font-size: 2.5em;
+      margin: 20px 0;
+    }
+    .container p {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+    .container .button {
+      margin-top: 20px;
+    }
+    .button a, .button form button {
+      background-color: white;
+      color: #b71c1c;
+      border: none;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .button a:hover, .button form button:hover {
+      background-color: #f5f5f5;
+    }
+    .icon {
+      font-size: 60px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span>Gestão GJN</span>
+    <nav>
+      <a href="\login">Login</a>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="icon">📊</div>
+    <h1>Bem-vindo ao Gestão GJN</h1>
+    <p>O sistema completo para gerenciar estoque, vendas, compras e relatórios.</p>
+    <div class="button">
+      <a href="/cadastro">Cadastre-se</a>
+    </div>
+  </div>
+</body>
+</html>

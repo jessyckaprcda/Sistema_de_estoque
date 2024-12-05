@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Empresa</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #b71c1c;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    form {
+      background-color: white;
+      color: #b71c1c;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 400px;
+    }
+    form input, form textarea, form button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #b71c1c;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    form input:focus, form textarea:focus {
+      outline: none;
+      border-color: #8b0000;
+    }
+    form textarea {
+      resize: none;
+      height: 80px;
+    }
+    form button {
+      background-color: #b71c1c;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #8b0000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cadastro de Empresa</h1>
+  <form method="POST" action="/cadastro">
+    <input type="text" name="nome_empresa" placeholder="Nome da Empresa" required />
+    <input type="text" name="cnpj" placeholder="CNPJ" required />
+    <textarea name="endereco" placeholder="Endereço" required></textarea>
+    <input type="text" name="telefone" placeholder="Telefone" />
+    <input type="email" name="email" placeholder="E-mail" />
+    <button type="submit">Cadastrar</button>
+  </form>
+</body>
+</html>
