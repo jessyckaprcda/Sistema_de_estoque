@@ -38,7 +38,7 @@ const empresaController = {
         req.session.empresa = {
           id: empresa.id_empresa,
           nome: empresa.nome_empresa,
-        }; // Salva apenas os dados necessários na sessão
+        };
         res.redirect(`/index/${empresa.id_empresa}`);
       } else {
         res.render('login', { error: 'Credenciais inválidas.' });
@@ -53,7 +53,7 @@ const empresaController = {
     try {
       const { id_empresa } = req.params;
 
-      // Obter detalhes da empresa
+
       const empresa = await prismaClient.empresa.findUnique({
         where: { id_empresa: parseInt(id_empresa) },
       });
@@ -62,7 +62,7 @@ const empresaController = {
         return res.status(404).send('Empresa não encontrada.');
       }
 
-      // Renderizar a página com os dados
+      
       res.render('empresaIndex', { empresa });
     } catch (err) {
       res.status(500).send('Erro ao carregar a página da empresa: ' + err.message);
@@ -70,7 +70,7 @@ const empresaController = {
   },
 
   index: (req, res) => {
-    const { id_empresa } = req.session; // Supomos que a empresa está logada
+    const { id_empresa } = req.session; 
     res.render('empresaIndex', { id_empresa });
   },
 };

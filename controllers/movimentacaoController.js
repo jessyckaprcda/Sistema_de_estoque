@@ -2,12 +2,10 @@ const { PrismaClient } = require('@prisma/client');
 const prismaClient = new PrismaClient();
 
 const movimentacaoController = {
-  // Exibe a página de movimentação para o funcionário
   paginaMovimentacao: async (req, res) => {
     const { id_funcionario } = req.params;
 
     try {
-      // Buscar os produtos da empresa associada ao funcionário
       const funcionario = await prismaClient.funcionario.findUnique({
         where: { id_funcionario: parseInt(id_funcionario) },
         include: { empresa: true },
@@ -17,12 +15,10 @@ const movimentacaoController = {
         return res.status(404).send("Funcionário não encontrado.");
       }
 
-      // Buscar os produtos da empresa
       const produtos = await prismaClient.produto.findMany({
         where: { id_empresa: funcionario.id_empresa },
       });
 
-      // Renderizar a página de movimentação, passando os dados necessários
       res.render('movimentacao', { id_funcionario, produtos });
     } catch (err) {
       console.error('Erro ao carregar a página de movimentação:', err.message);
@@ -30,7 +26,6 @@ const movimentacaoController = {
     }
   },
 
-  // Registrar a movimentação de produto (entrada ou saída)
   registrarMovimentacao: async (req, res) => {
     try {
       const { id_funcionario, id_produto, descricao, valor, tipo_movimentacao, quantidade } = req.body;
@@ -64,7 +59,7 @@ const movimentacaoController = {
           quantidade: novaQuantidade,
         },
       });
-      // Buscar as movimentações relacionadas ao funcionário
+      
       await prismaClient.movimentacoes.create({
         data: {
           id_funcionario: parseInt(id_funcionario, 10),

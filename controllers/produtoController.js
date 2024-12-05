@@ -12,7 +12,6 @@ const produtoController = {
         try {
           const { nome_produto, categoria, quantidade, preco, id_empresa } = req.body;
       
-          // Adicionar o produto no banco de dados
           await prismaClient.produto.create({
             data: {
               nome_produto,
@@ -23,7 +22,6 @@ const produtoController = {
             },
           });
       
-          // Redirecionar para a página de índice da empresa
           res.redirect(`/index/${id_empresa}`);
         } catch (err) {
           console.error('Erro ao cadastrar produto:', err.message);

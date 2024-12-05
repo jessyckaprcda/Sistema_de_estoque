@@ -28,7 +28,7 @@ const funcionarioController = {
         },
       });
 
-      res.redirect(`/index/${id_empresa}`); // Redireciona para a página inicial
+      res.redirect(`/index/${id_empresa}`);
     } catch (err) {
       res.status(500).send('Erro ao cadastrar funcionário: ' + err.message);
     }
@@ -58,8 +58,8 @@ const funcionarioController = {
 
       req.session.funcionarioId = funcionario.id_funcionario;
       res.render('funcionarioIndex', {
-        funcionario: funcionario, // Exemplo de dados
-        id_funcionario: funcionario.id_funcionario // Certifique-se de que esta propriedade exista
+        funcionario: funcionario, 
+        id_funcionario: funcionario.id_funcionario 
     });
     
     } catch (err) {
@@ -79,7 +79,7 @@ const funcionarioController = {
         return res.status(404).send('Funcionário não encontrado.');
       }
 
-      // Renderizar a página com os dados do funcionário
+      
       res.render('funcionarioIndex', { funcionario });
     } catch (err) {
       res.status(500).send('Erro ao carregar a página do funcionário: ' + err.message);
